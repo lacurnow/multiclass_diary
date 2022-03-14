@@ -98,27 +98,26 @@ def ContactList
    # ...
   end
 
+  def all_contacts
+  # returns a list of all contacts
+  end
 
-  def list_contacts
-  # returns a list of contacts
+  def contact_numbers
+  # returns a hash of name keys and number values from diary
+  end
+
+  def read_contact_numbers
+  # returns a formatted string of all contacts and their numbers
   end
 end
 
 def Contact
-  def initialize(name, number) # name, number are strings
+  def initialize(name) # name is a string
   # ...
   end
 
   def name
   # returns name
-  end
-
-  def number
-  # returns number
-  end
-
-  def display_contact
-  # returns formatted contact details
   end
 end
 ```
@@ -183,7 +182,7 @@ expect(todo_list.incomplete).to eq [task1, task2]
 
 ```ruby
 diary = Diary.new
-friday = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123")
+friday = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123.")
 saturday = DiaryEntry.new("Saturday", "I went to the cinema and had a lovely time.")
 sunday = DiaryEntry.new("Sunday", "Mary's phone number is 07854777666")
 monday = DiaryEntry.new("Monday", "Quentin's phone number is 07854777555.") # Name not in contact list.
@@ -192,13 +191,16 @@ wednesday = DiaryEntry.new("Wednesday", "I met Steve, his phone number is 078451
 diary.add(friday)
 diary.add(saturday)
 diary.add(sunday)
-expect(diary.all_diary_numbers).to eq ["Dave: 07845123123", "Mary: 07854777666", "Unkown: 07854777555"]
+diary.add(monday)
+diary.add(tuesday)
+diary.add(sunday)
+expect(diary.all_diary_numbers).to eq ["07845123123", "07854777666", "07854777555"]
 ```
 
 > ## 4. Create Examples as Unit Tests
 ``` ruby
 contact_1 = Contact.new("Jon")
-expect(contact_1.name_.to eq "Jon"
+expect(contact_1.name).to eq "Jon"
 
 # More unit tests will be added, ad-hoc.
 ```
