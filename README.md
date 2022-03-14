@@ -186,17 +186,22 @@ diary = Diary.new
 friday = DiaryEntry.new("Friday", "I met Dave, his phone number is 07845123123")
 saturday = DiaryEntry.new("Saturday", "I went to the cinema and had a lovely time.")
 sunday = DiaryEntry.new("Sunday", "Mary's phone number is 07854777666")
-monday = DiaryEntry.new("Monday", "Quentin's phone number is 07854777555, but I don't know him.") #this is not in the contact list
+monday = DiaryEntry.new("Monday", "Quentin's phone number is 07854777555.") # Name not in contact list.
+tuesday = DiaryEntry.new("Tuesday", "I met Dave again, his phone number is 07845123123") # Duplicate entry case.
+wednesday = DiaryEntry.new("Wednesday", "I met Steve, his phone number is 0784512 ") # Invalid number
 diary.add(friday)
 diary.add(saturday)
 diary.add(sunday)
-expect(diary.all_diary_numbers).to eq ["Dave: 07845123123", "Mary: 07854777666", "Unknown numbers: 07854777555"]
+expect(diary.all_diary_numbers).to eq ["Dave: 07845123123", "Mary: 07854777666", "Unkown: 07854777555"]
 ```
 
 > ## 4. Create Examples as Unit Tests
->
-> Create examples, where appropriate, of the behaviour of each relevant class at
-> a more granular level of detail.
+``` ruby
+contact_1 = Contact.new("Jon")
+expect(contact_1.name_.to eq "Jon"
+
+# More unit tests will be added, ad-hoc.
+```
 >
 > Encode one of these as a test and move to step 5.
 >
@@ -208,47 +213,3 @@ expect(diary.all_diary_numbers).to eq ["Dave: 07845123123", "Mary: 07854777666",
 > Then return to step 3 until you have addressed the problem you were given. You
 > may also need to revise your design, for example if you realise you made a
 > mistake earlier.
-
-Copy and fill out [this template](../resources/multi_class_recipe_template.md)
-for each of the below exercises.
-
-## Demonstration
-
-[A video demonstration](https://www.youtube.com/watch?v=CkyhW3pNTUY&t=0s)
-
-## Exercise
-
-This is the big one! You might want to start a new RSpec project for this.
-
-Use object-oriented design and test-driven development, backed up by your
-debugging and pairing skills, to develop the following program.
-
-> As a user  
-> So that I can record my experiences  
-> I want to keep a regular diary
-
-> As a user  
-> So that I can reflect on my experiences  
-> I want to read my past diary entries
-
-> As a user  
-> So that I can reflect on my experiences in my busy day  
-> I want to select diary entries to read based on how much time I have and my
-> reading speed
-
-> As a user  
-> So that I can keep track of my tasks  
-> I want to keep a todo list along with my diary
-
-> As a user  
-> So that I can keep track of my contacts  
-> I want to see a list of all of the mobile phone numbers in all my diary
-> entries
-
-Some pointers:
-
-- Remember that user stories don't map to classes 1:1. You'll need to digest the
-  full problem and then develop a multi-class system that meets the user's
-  needs.
-- Don't worry about user interface or input-output. That means you shouldn't be
-  using `gets` and only use `puts` for debugging purposes.
